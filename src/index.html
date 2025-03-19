@@ -3,11 +3,410 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="./style/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="style/input.css">
+  <title>Auto Buy-1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1 class="my-30">
-    Hello world!
-  </h1>
+  <section id="the-nav-bar">
+  <!-- Nav bar -->
+  <nav class="relative container mx-auto p-6">
+    <!-- Flex Container -->
+    <div class="flex items-center justify-between bg-white">
+      <!-- Logo -->
+      <div class="pt-2">
+        <img src="images/carxperto.png" alt="logo" class="w-40 md:w-50 lg:w-56">
+      </div>
+  
+      <!-- Menu Items -->
+      <div
+        class="hidden space-x-8 tracking-wide font-sans text-gray-600 text-lg md:text-base sm:text-sm md:flex ">
+        <a
+          href="#home"
+          class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70"
+        >
+          Home
+        </a>
+        <a
+          href="#car-listing"
+          class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70"
+        >
+          Car Listing
+        </a>
+        <a
+          href="#about"
+          class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70"
+        >
+          About Us
+        </a>
+        <a
+          href="#features"
+          class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70"
+        >
+          Features
+        </a>
+      </div>
+  
+      <!-- Button & Avatar -->
+      <div class="hidden md:flex space-x-8 items-center" title="sign-up">
+        <a
+          href="sign-up.html"
+          target="_blank"
+          class="link-c font-semibold bg-[#003b6d] px-5 py-2 rounded-lg transition-all hover:bg-[#002b50]"
+        >
+          Sign up
+        </a>
+        <a href="sign-in.html" title="sign-in">
+          <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
+        </a>  
+        
+      </div>
+    </div>
+  
+  </nav>
+  
+  </section>
+
+  <section id="the-big-highlander" class="px-4">
+    <!-- Container with relative positioning -->
+    <div class="msg-highlander flex flex-col md:flex-row justify-center items-center md:items-end relative mt-10 mb-10">
+      
+      <!-- Popup Message -->
+      <div class="Popup-Message bg-white/70 p-6 rounded-lg shadow-lg max-w-md md:absolute md:left-36 md:top-12 z-10 text-center md:text-left">
+        <h4 class="text-[#003b6d] tracking-wide text-2xl md:text-3xl">
+          Heading
+        </h4>
+        <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+          Lorem ipsum dolor sit amet consectetur. Et diam suspendisse non risus integer gravida ut. Vitae vulputate amet iaculis in nullam venenatis eget laoreet. Posuere purus blandit adipiscing risus volutpat vitae viverra a viverra. Elementum faucibus tempor dapibus consectetur.
+        </p>
+        <div class="mt-4">
+          <button class="text-white font-semibold text-lg bg-[#003b6d] px-6 py-2 rounded-xl hover:bg-blue-950 transition-all duration-300">
+            Explore
+          </button>
+        </div>
+      </div>
+      
+      <!-- The car image (75% width) -->
+      <img src="images/white-car.png" alt="white car" class="highlander w-3/4 md:w-[75%]">
+    </div>
+  </section>
+    
+  <section id="search-for-car-of-your-choise">
+    <!-- searching for cars -->
+    <div class="flex flex-col items-center mt-15 ">
+      <!-- Find your dream Car -->
+        <h4 class="max-w-md text-3xl text-center font-bold text-[#003b6d] font-Montserrat md:text-4xl">
+          Find your dream Car
+        </h4>
+    
+      <!-- Search for Car with their categories -->
+      <div class="p-5 bg-[#E6EBF0] m-8 mt-50 rounded-lg">
+        <div class="flex flex-wrap mx-10 justify-between gap-6">
+          
+          <!-- Type -->
+          <div class="flex flex-col gap-2">
+            <label for="Type" class="text-xl font-montserrat text-black text-left">Type</label>
+            <select id="Type" name="new-or-old"
+              class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
+              <option value="new-car">New Car</option>
+              <option value="old-car">Old Car</option>
+            </select>
+          </div>
+    
+          <!-- Make -->
+          <div class="flex flex-col gap-2">
+            <label for="Make" class="text-xl font-montserrat text-black text-left">Make</label>
+            <select id="Make" name="cars"
+              class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
+              <option value="bmw">BMW</option>
+              <option value="audi">Audi</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="tesla">Tesla</option>
+            </select>
+          </div>
+    
+          <!-- Model -->
+          <div class="flex flex-col gap-2">
+            <label for="Model" class="text-xl font-montserrat text-black text-left">Model</label>
+            <select id="Model" name="cars"
+              class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
+              <option value="bmw">BMW</option>
+              <option value="audi">Audi</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="tesla">Tesla</option>
+            </select>
+          </div>
+    
+          <!-- Year -->
+          <div class="flex flex-col gap-2">
+            <label for="Year" class="text-xl font-montserrat text-black text-left">Year</label>
+            <select id="Year" name="cars"
+              class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
+          </div>
+    
+          <!-- Price Range -->
+          <div class="flex flex-col gap-2">
+            <label for="Price" class="text-xl font-montserrat text-black text-left">Price Range</label>
+            <select id="Price" name="cars"
+              class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
+              <option value="low">Under $20,000</option>
+              <option value="mid">$20,000 - $50,000</option>
+              <option value="high">$50,000 - $100,000</option>
+              <option value="luxury">Above $100,000</option>
+            </select>
+          </div>
+    
+          <!-- Search Button -->
+          <div class="flex items-center">
+            <button
+              class="text-gray-50 font-semibold text-xl bg-[#003b6d] w-30 h-15 px-6 rounded-xl text-center font-mono hover:bg-blue-950 transition-all duration-300">
+              Search
+            </button>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="future-car-listing">
+    <div class="flex flex-col m-8 items-center">
+      <!-- future listing heading -->
+        <h1 class="text-center text-[#003b6d] font-Montserrat font-bold text-3xl my-8 md:text-4xl">
+          Featured Listing
+        </h1>
+
+        <div class="flex flex-col md:flex-row gap-6 p-6 ">
+          <!-- first corolla -->
+          <div class="space-y-5 shadow-[0_8px_6px_rgba(0,0,0,0.25)] ">
+            <div>
+              <img src="images/toyota-corolla.png" alt="toyota-corolla">
+            </div>
+            <div class="flex flex-col mb-10 space-y-8 px-2.5">
+              <h4 class="max-w-sm text-left text-[#003b6d] font-bold tracking-wide text-2xl md:text-3xl">
+                Toyota Corolla
+              </h4>
+              <p class="text-blue-900 text-base">
+                Car shoppers purchased more than one million Toyota Corolla models, making it the world's most popular car in 2022.
+              </p>
+            </div>
+          </div>
+        
+          <!-- second corolla -->
+          <div class="space-y-5 shadow-[0_8px_6px_rgba(0,0,0,0.25)]">
+            <div>
+              <img src="images/corolla2.png" alt="toyota-corolla">
+            </div>
+            <div class="flex flex-col mb-10 space-y-8 px-2.5">
+              <h4 class="max-w-sm text-left text-[#003b6d] font-bold tracking-wide text-2xl md:text-3xl">
+                Toyota Corolla
+              </h4>
+              <p class="text-blue-900">
+                Car shoppers purchased more than one million Toyota Corolla models, making it the world's most popular car in 2022.
+              </p>
+            </div>
+          </div>
+        
+          <!-- third corolla -->
+          <div class="space-y-5 shadow-[0_8px_6px_rgba(0,0,0,0.25)]">
+            <div>
+              <img src="images/corolla3.png" alt="toyota-corolla">
+            </div>
+            <div class="flex flex-col mb-10 space-y-8 px-2.5">
+              <h4 class="max-w-sm text-left text-[#003b6d] font-bold tracking-wide text-2xl md:text-3xl">
+                Toyota Corolla
+              </h4>
+              <p class="text-blue-900">
+                Car shoppers purchased more than one million Toyota Corolla models, making it the world's most popular car in 2022.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+          </div>
+  </section>
+
+  <!-- Trusted Brand -->
+  <section id="Trusted-brand">
+    <div class="flex-col m-30">
+      <h1 class="text-center text- font-bold tracking-wider text-3xl md:text-4xl text-[#003b6d]">
+        Trusted Brands
+      </h1>
+      <div class="brands">
+        <div class="brand-image flex justify-center">
+          <img src="images/brands/Toyota.png" alt="Toyota">
+        </div>
+        <div class="brand-image flex justify-center">
+          <img src="images/brands/volkswagen.png" alt="volkswagen">
+        </div>
+        <div class="brand-image flex justify-center">
+          <img src="images/brands/ford.png" alt="ford">
+        </div>
+        <div class="brand-image flex justify-center">
+          <img src="images/brands/volvo.png" alt="volvo">
+        </div>
+        <div class="brand-image flex justify-center">
+          <img src="images/brands/mercedes-benz.png" alt="mercedes-benz">
+        </div>
+        <div class="brand-image flex justify-center">
+          <img src="images/brands/bentley.png" alt="bentley">
+        </div>
+        <div class="brand-image flex justify-center">
+          <img src="images/brands/Stellantis.png" alt="Stellantis">
+        </div>
+        <div class="brand-image flex justify-center">
+          <img src="images/brands/BMW.png" alt="BMW">
+        </div>
+      </div>
+    </section>
+
+    <section id="Testimonial-Section">
+      <div class="testimonial">
+        <!-- Testimonial Header -->
+        <div id="testimo-head"><h4 class="text-center text- font-bold tracking-wider text-4xl text-[#003b6d]">Testimonial</h1></div> 
+        <div class="testimonial-contents">
+
+          <!-- Testimonial Contents -->
+          <div class="test-ctn">
+            <div>
+              <p>"I've been using this website for a while now, and I'm amazed by the quality of service. The car valuation tool provided accurate estimates, and I found the perfect insurance coverage hassle-free. Highly recommended!"
+              </p>
+            </div>
+            <div class="img-details">
+              <div class="img">
+                <img src="images/testimony/test1.png" alt="Testimonial">
+              </div>
+              <div>
+                <p>John Doe <br> Car Owner</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="test-ctn">
+            <div>
+              <p>"The car valuation tool is a game-changer! It helped me get a fair price for my car when I was selling it. Plus, the insurance quote feature saved me a lot of time and effort. Thanks for making the process so easy!"
+              </p>
+            </div>
+            <div class="img-details">
+              <div class="img">
+                <img src="images/testimony/test2.png" alt="testimonial">
+              </div>
+              <div>
+                <p>Jane Smith <br> Happy Customer</p>
+              </div>
+              
+            </div>
+          </div>
+          <div class="test-ctn">
+            <div>
+              <p>"I can't thank this website enough for the seamless experience. The car insurance quotes were spot on, and the valuation tool gave me confidence in my car's worth. Definitely my go-to platform for all things car-related!"                
+              </p>
+            </div>
+          <div>
+            <div class="img-details">
+              <div class="img">
+                <img src="images/testimony/test3.png" alt="testimonial">
+              </div>
+              <div>
+                <p>Michael John <br> Car Enthusiast</p>
+              </div>            
+            </div>
+          <div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="footer-section">
+<!-- Footer -->
+<footer class="bg-[#003b6d] text-white py-10 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- First Container -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-center md:text-left">
+      
+      <!-- Navigation -->
+      <div>
+        <h2 class="font-bold text-lg mb-3">Navigation</h2>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Home</a></li>
+          <li><a href="#" class="hover:underline">Car Listing</a></li>
+          <li><a href="#" class="hover:underline">Search</a></li>
+          <li><a href="#" class="hover:underline">Testimonial</a></li>
+          <li><a href="#" class="hover:underline">Footer</a></li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div>
+        <h2 class="font-bold text-lg mb-3">About Us</h2>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">About Us</a></li>
+          <li><a href="#" class="hover:underline">Our Services</a></li>
+          <li><a href="#" class="hover:underline">Car Appraisal</a></li>
+          <li><a href="#" class="hover:underline">Car Evaluation</a></li>
+          <li><a href="#" class="hover:underline">Car Insurance</a></li>
+        </ul>
+      </div>
+
+      <!-- Features -->
+      <div>
+        <h2 class="font-bold text-lg mb-3">Features</h2>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Sell Car</a></li>
+          <li><a href="#" class="hover:underline">Buy Car</a></li>
+          <li><a href="#" class="hover:underline">Platform Admin</a></li>
+        </ul>
+      </div>
+
+      <!-- Subscribe -->
+      <div>
+        <h2 class="font-bold text-lg mb-3">Subscribe to our Newsletter</h2>
+        <div class="flex flex-col md:flex-row items-center bg-white rounded-lg overflow-hidden">
+          <input type="email" placeholder="Enter your email" class="p-2 w-full text-black focus:outline-none">
+          <button class="bg-blue-600 px-4 py-2 text-white font-semibold hover:bg-blue-700 transition w-full md:w-auto">
+            Subscribe
+          </button>
+        </div>
+        <p class="mt-3 text-sm text-gray-300">
+          Lorem ipsum dolor sit amet consectetur. Amet adipiscing enim enim ac aenean facilisis eget sit nibh. 
+          Egestas aliquam congue congue massa scelerisque.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Second Container -->
+    <div class="flex flex-col md:flex-row items-center justify-between border-t border-gray-500 pt-6 text-center md:text-left">
+      
+      <!-- AutoBuy -->
+      <div class="text-xl font-bold">AutoBuy</div>
+
+      <!-- Social Media Links -->
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#" class="text-white text-2xl"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="text-white text-2xl"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-white text-2xl"><i class="fa-brands fa-invision"></i></a>
+        <a href="#" class="text-white text-2xl"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+</section>
+
 </body>
 </html>
