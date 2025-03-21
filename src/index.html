@@ -13,78 +13,69 @@
 </head>
 <body>
   <section id="the-nav-bar">
-  <!-- Nav bar -->
-  <nav class="relative container mx-auto p-6">
-    <!-- Flex Container -->
-    <div class="flex items-center justify-between bg-white">
-      <!-- Logo -->
-      <div class="pt-2">
-        <img src="images/carxperto.png" alt="logo" class="w-40 md:w-50 lg:w-56">
+    <!-- Nav bar -->
+    <nav class="relative container mx-auto p-6">
+      <!-- Flex Container -->
+      <div class="flex items-center justify-between bg-white">
+        <!-- Logo -->
+        <div class="pt-2">
+          <img src="images/carxperto.png" alt="logo" class="w-40 md:w-50 lg:w-56">
+        </div>
+  
+        <!-- Menu Items (Hidden on small screens) -->
+        <div id="menu" class="hidden md:flex space-x-8 tracking-wide font-sans text-gray-600 text-lg md:text-base sm:text-sm">
+          <a href="#home" class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70">Home</a>
+          <a href="#car-listing" class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70">Car Listing</a>
+          <a href="#about" class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70">About Us</a>
+          <a href="#features" class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70">Features</a>
+        </div>
+  
+        <!-- Button & Avatar (Hidden on small screens) -->
+        <div class="hidden md:flex space-x-8 items-center" title="sign-up">
+          <a href="sign-up.html" target="_blank" class="font-semibold bg-[#003b6d] px-5 py-2 rounded-lg transition-all hover:bg-[#002b50]">
+            Sign up
+          </a>
+          <a href="sign-in.html" title="sign-in">
+            <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
+          </a>  
+        </div>
+  
+        <!-- Hamburger Button (Mobile) -->
+        <button id="menu-btn" class="md:hidden text-3xl text-gray-600">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
   
-      <!-- Menu Items -->
-      <div
-        class="hidden space-x-8 tracking-wide font-sans text-gray-600 text-lg md:text-base sm:text-sm md:flex ">
-        <a
-          href="#home"
-          class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70"
-        >
-          Home
-        </a>
-        <a
-          href="#car-listing"
-          class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70"
-        >
-          Car Listing
-        </a>
-        <a
-          href="#about"
-          class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70"
-        >
-          About Us
-        </a>
-        <a
-          href="#features"
-          class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70"
-        >
-          Features
-        </a>
-      </div>
-  
-      <!-- Button & Avatar -->
-      <div class="hidden md:flex space-x-8 items-center" title="sign-up">
-        <a
-          href="sign-up.html"
-          target="_blank"
-          class="link-c font-semibold bg-[#003b6d] px-5 py-2 rounded-lg transition-all hover:bg-[#002b50]"
-        >
-          Sign up
-        </a>
-        <a href="sign-in.html" title="sign-in">
+      <!-- Mobile Menu (Hidden by default) -->
+      <div id="mobile-menu" class="hidden flex-col bg-white mt-4 text-gray-600 text-lg md:hidden space-y-3 p-4 border rounded-lg shadow-md">
+        <a href="#home" class="block text-center hover:text-[#003b6d]">Home</a>
+        <a href="#car-listing" class="block text-center hover:text-[#003b6d]">Car Listing</a>
+        <a href="#about" class="block text-center hover:text-[#003b6d]">About Us</a>
+        <a href="#features" class="block text-center hover:text-[#003b6d]">Features</a>
+        <a href="sign-up.html" class="block text-center bg-[#003b6d] text-white py-2 rounded-lg hover:bg-[#002b50]">Sign up</a>
+        <a href="sign-in.html" class="block text-center">
           <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
-        </a>  
-        
+        </a>
       </div>
-    </div>
   
-  </nav>
-  
+    </nav>
   </section>
-
+  
+  
   <section id="the-big-highlander" class="px-4">
     <!-- Container with relative positioning -->
     <div class="msg-highlander flex flex-col md:flex-row justify-center items-center md:items-end relative mt-10 mb-10">
       
       <!-- Popup Message -->
-      <div class="Popup-Message bg-white/70 p-6 rounded-lg shadow-lg max-w-md md:absolute md:left-36 md:top-12 z-10 text-center md:text-left">
-        <h4 class="text-[#003b6d] tracking-wide text-2xl md:text-3xl">
+      <div class="Popup-Message hidden bg-white/70 p-[8em,8%] rounded-lg shadow-lg max-w-md md:absolute md:left-36 md:top-12 z-10 text-left">
+        <h4 class="text-[#003b6d] tracking-wide text-[clamp(0.5rem,3vw,2rem)] text-bold">
           Heading
         </h4>
-        <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+        <p class="text-gray-700 text-[1vw] md:text-base leading-relaxed">
           Lorem ipsum dolor sit amet consectetur. Et diam suspendisse non risus integer gravida ut. Vitae vulputate amet iaculis in nullam venenatis eget laoreet. Posuere purus blandit adipiscing risus volutpat vitae viverra a viverra. Elementum faucibus tempor dapibus consectetur.
         </p>
         <div class="mt-4">
-          <button class="text-white font-semibold text-lg bg-[#003b6d] px-6 py-2 rounded-xl hover:bg-blue-950 transition-all duration-300">
+          <button class="text-white font-semibold text-[clamp(0.5rem,2.8vw,1.8rem)] bg-[#003b6d] px-6 py-2 rounded-xl hover:bg-blue-950 transition-all duration-300 explore">
             Explore
           </button>
         </div>
@@ -99,7 +90,7 @@
     <!-- searching for cars -->
     <div class="flex flex-col items-center mt-15 ">
       <!-- Find your dream Car -->
-        <h4 class="max-w-md text-3xl text-center font-bold text-[#003b6d] font-Montserrat md:text-4xl">
+        <h4 class="max-w-md text-center font-bold text-[#003b6d] font-Montserrat text-[clamp(1.3rem,3.4vw,3.8rem)]">
           Find your dream Car
         </h4>
     
@@ -123,9 +114,6 @@
             <select id="Make" name="cars"
               class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
               <option value="bmw">BMW</option>
-              <option value="audi">Audi</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="tesla">Tesla</option>
             </select>
           </div>
     
@@ -147,9 +135,6 @@
             <select id="Year" name="cars"
               class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
               <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
             </select>
           </div>
     
@@ -172,16 +157,26 @@
               Search
             </button>
           </div>
-    
+          
         </div>
       </div>
     </div>
   </section>
+  
+  <section id="searched-car">
+    <!-- searched car -->
+    <div class="container flex flex-col">
+      <h3>Car Name</h3>
+      <img src="images/corolla2.png" alt="carxperto">
+      <p><strong></strong><span></span></p>
+    </div>
+  </section>
+
 
   <section id="future-car-listing">
     <div class="flex flex-col m-8 items-center">
       <!-- future listing heading -->
-        <h1 class="text-center text-[#003b6d] font-Montserrat font-bold text-3xl my-8 md:text-4xl">
+        <h1 class="text-center text-[#003b6d] font-Montserrat font-bold text-[clamp(1.3rem,3.4vw,3.8rem)] my-8 ">
           Featured Listing
         </h1>
 
@@ -192,7 +187,7 @@
               <img src="images/toyota-corolla.png" alt="toyota-corolla">
             </div>
             <div class="flex flex-col mb-10 space-y-8 px-2.5">
-              <h4 class="max-w-sm text-left text-[#003b6d] font-bold tracking-wide text-2xl md:text-3xl">
+              <h4 class="max-w-sm text-left text-[#003b6d] font-bold tracking-wide text-[clamp(0.8rem,3vw,2.5rem)] md:text-3xl">
                 Toyota Corolla
               </h4>
               <p class="text-blue-900 text-base">
@@ -236,10 +231,11 @@
           </div>
   </section>
 
+
   <!-- Trusted Brand -->
   <section id="Trusted-brand">
     <div class="flex-col m-30">
-      <h1 class="text-center text- font-bold tracking-wider text-3xl md:text-4xl text-[#003b6d]">
+      <h1 class="text-center font-bold tracking-wider text-[clamp(1.3rem,3.4vw,3.8rem)] text-[#003b6d]">
         Trusted Brands
       </h1>
       <div class="brands">
@@ -273,7 +269,11 @@
     <section id="Testimonial-Section">
       <div class="testimonial">
         <!-- Testimonial Header -->
-        <div id="testimo-head"><h4 class="text-center text- font-bold tracking-wider text-4xl text-[#003b6d]">Testimonial</h1></div> 
+        <div id="testimo-head">
+          <h4 class="text-center text- font-bold tracking-wider text-[#003b6d] text-[clamp(1.3rem,3.4vw,3.8rem)]">
+            Testimonial
+          </h1>
+        </div> 
         <div class="testimonial-contents">
 
           <!-- Testimonial Contents -->
@@ -326,7 +326,9 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
+    
     </section>
 
 <section id="footer-section">
@@ -408,5 +410,6 @@
 </footer>
 </section>
 
+<script src="scripts/main.js"></script>
 </body>
 </html>

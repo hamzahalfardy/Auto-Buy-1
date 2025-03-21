@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 * {
   box-sizing: border-box;
 }
@@ -7,12 +8,7 @@
 
 body {
   overflow-x: hidden;
-  /* display: flex; */
-  /* justify-content: center; Centers horizontally */
-  /* align-items: center; Centers vertically */
-  /* height: 100vh; Full viewport height */
-  /* margin: 0; Remove default margin */
-  /* flex-direction: column; Stack items vertically */
+  padding: 0 0.2rem;
 }
 
 
@@ -122,11 +118,13 @@ body {
   align-content: center;
   align-items: center;
   justify-items: center;
+  padding: 5em, 8%;
+
 }
 
 .testimonial-contents{
   display: flex;
-  position: relative;
+  flex-direction: column;
   gap:20px;
   justify-content: center;
   align-content: center;
@@ -136,11 +134,21 @@ body {
   padding: auto;
 }
 
+@media (min-width: 700px) {
+  .testimonial-contents{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
 .test-ctn{
   background-color: rgb(235, 235, 243);
   border-radius: 10px;
-  padding: 15px;
-  text-wrap: inherit;
+  padding: 10px 1rem;
+  max-width: 50rem;
+  margin: auto;
+  /* text-wrap: inherit; */
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
