@@ -1,3 +1,43 @@
+// Hamburger Button
+const menuBtn = document.getElementById('menu-btn');
+  const closeBtn = document.getElementById('close-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('backdrop');
+
+  function openMenu() {
+    mobileMenu.classList.remove('translate-x-full');
+    backdrop.classList.remove('hidden');
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.add('translate-x-full');
+    backdrop.classList.add('hidden');
+}
+  
+  menuBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+
+  // PopUp Message
+  setTimeout(() => {
+    const popup = document.getElementById('popup');
+    popup.classList.remove('hidden');
+    popup.classList.remove('opacity-0');
+    popup.classList.add('opacity-100');
+  }, 3000);
+  
+  // Hide popup on 'Explore' button click
+  document.querySelector('.close-popup').addEventListener('click', () => {
+    const popup = document.getElementById('popup');
+    popup.classList.add('opacity-0');
+  
+    // Wait for fade-out before hiding
+    setTimeout(() => {
+      popup.classList.add('hidden');
+    }, 500); // must match the `duration-500`
+  });
+
+
 class Cars {
   constructor({ image, model, infor, order}) {
     this.image = image;
@@ -11,7 +51,7 @@ const cars = [
   new Cars({
     image: 'image4.webp',
     model: 'GMC Terrain',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission and front- or all-wheel drive.',
+    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission ...',
     order: 'Buy now',
     
   }),
@@ -99,7 +139,7 @@ const cars = [
   new Cars({
     image: 'image12.webp',
     model: '2026 Tesla',
-    infor: 'We owned a 2021 Tesla Model Y for 2.5 years as a long-term test car, reporting on efficiency, range, battery degradation, and what it was like living with the electric SUV and using it in our daily routines. The redesigned 2026 Model Y (nicknamed Model Y Juniper) is on sale now . . .',
+    infor: 'We owned a 2021 Tesla Model Y for 2.5 years as a long-term test car, reporting on efficiency, range, battery degradation, and what it was like living with the electric SUV and using it in our daily routines. The redesigned 2026 Model Y (nicknamed Model Y Juniper) ...',
     order: 'Buy now',
   })
 ]

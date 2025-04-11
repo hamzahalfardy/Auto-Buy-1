@@ -18,6 +18,7 @@
   <title>Auto Buy-1</title>
 </head>
 <body>
+
   <section id="the-nav-bar">
     <!-- Nav bar -->
     <nav class="relative container mx-auto p-6">
@@ -28,66 +29,80 @@
           <img src="images/carxperto.png" alt="logo" class="w-40 md:w-50 lg:w-56">
         </div>
   
-        <!-- Menu Items (Hidden on small screens) -->
+        <!-- Desktop Menu -->
         <div id="menu" class="hidden md:flex space-x-8 tracking-wide font-sans text-gray-600 text-lg md:text-base sm:text-sm">
-          <a href="#home" class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70">Home</a>
-          <a href="#car-listing" class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70">Car Listing</a>
-          <a href="#about" class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70">About Us</a>
-          <a href="#features" class="relative pb-1 border-b-2 border-transparent duration-200 hover:border-teal-700 hover:opacity-70">Features</a>
+          <a href="#home" class="hover:border-b-2 hover:border-[#003b6d]">Home</a>
+          <a href="#car-listing" class="hover:border-b-2 hover:border-[#003b6d]">Car Listing</a>
+          <a href="#about" class="hover:border-b-2 hover:border-[#003b6d]">About Us</a>
+          <a href="#features" class="hover:border-b-2 hover:border-[#003b6d]">Features</a>
         </div>
   
-        <!-- Button & Avatar (Hidden on small screens) -->
-        <div class="hidden md:flex space-x-8 items-center" title="sign-up">
-          <a href="sign-up.html" target="_blank" class="font-semibold bg-[#003b6d] px-5 py-2 rounded-lg transition-all hover:bg-[#002b50]">
-            Sign up
-          </a>
-          <a href="sign-in.html" title="sign-in">
-            <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
-          </a>  
+        <!-- Desktop Buttons -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="sign-up.html" target="_blank" class="font-semibold bg-[#003b6d] px-5 py-2 rounded-lg text-white hover:bg-[#002b50]">Sign up</a>
+          <a href="sign-in.html"><i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i></a>
         </div>
   
-        <!-- Hamburger Button (Mobile) -->
-        <button id="menu-btn" class="md:hidden text-3xl text-gray-600">
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="md:hidden text-3xl text-gray-600 z-50">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
-  
-      <!-- Mobile Menu (Hidden by default) -->
-      <div id="mobile-menu" class="hidden flex-col bg-white mt-4 text-gray-600 text-lg md:hidden space-y-3 p-4 border rounded-lg shadow-md">
-        <a href="#home" class="block text-center hover:text-[#003b6d]">Home</a>
-        <a href="#car-listing" class="block text-center hover:text-[#003b6d]">Car Listing</a>
-        <a href="#about" class="block text-center hover:text-[#003b6d]">About Us</a>
-        <a href="#features" class="block text-center hover:text-[#003b6d]">Features</a>
-        <a href="sign-up.html" class="block text-center bg-[#003b6d] text-white py-2 rounded-lg hover:bg-[#002b50]">Sign up</a>
-        <a href="sign-in.html" class="block text-center">
-          <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
-        </a>
-      </div>
-  
     </nav>
-  </section>
   
+    <!-- Backdrop -->
+    <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+  
+    <!-- Slide-in Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[70%] max-w-[280px] bg-white z-50 p-6 flex flex-col space-y-6 text-lg text-gray-700 transform translate-x-full transition-transform duration-300 md:hidden shadow-lg">
+      <!-- Close button -->
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold text-[#003b6d]">Menu</h2>
+        <button id="close-btn" class="text-2xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <!-- Nav Links -->
+      <a href="#home" class="hover:text-[#003b6d]">Home</a>
+      <a href="#car-listing" class="hover:text-[#003b6d]">Car Listing</a>
+      <a href="#about" class="hover:text-[#003b6d]">About Us</a>
+      <a href="#features" class="hover:text-[#003b6d]">Features</a>
+      <a href="sign-up.html" class="bg-[#003b6d] text-white py-2 px-4 rounded-lg hover:bg-[#002b50] text-center">Sign up</a>
+      <a href="sign-in.html" class="text-center">
+        <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
+      </a>
+    </div>
+  </section>
   
   <section id="the-big-highlander" class="px-4">
     <!-- Container with relative positioning -->
     <div class="msg-highlander flex flex-col md:flex-row justify-center items-center md:items-end relative mt-10 mb-10">
       
       <!-- Popup Message -->
-      <div class="Popup-Message hidden bg-white/70 p-[8em,8%] rounded-lg shadow-lg max-w-md md:absolute md:left-36 md:top-12 z-10 text-left">
-        <h4 class="text-[#003b6d] tracking-wide text-[clamp(0.5rem,3vw,2rem)] text-bold">
+      <div
+        class="Popup-Message hidden opacity-0 transition-opacity duration-500 
+              bg-white/70 p-4 sm:p-6 md:p-[8em,8%] rounded-lg shadow-lg max-w-sm w-[90%]
+              mx-auto mb-10 md:mb-0 md:absolute md:left-36 md:top-12 z-10 text-left"
+        id="popup"
+      >
+        <h4 class="text-[#003b6d] tracking-wide text-[clamp(1rem,3vw,2rem)] font-bold">
           Heading
         </h4>
-        <p class="text-gray-700 text-[1vw] md:text-base leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur. Et diam suspendisse non risus integer gravida ut. Vitae vulputate amet iaculis in nullam venenatis eget laoreet. Posuere purus blandit adipiscing risus volutpat vitae viverra a viverra. Elementum faucibus tempor dapibus consectetur.
+        <p class="text-gray-700 text-sm md:text-base leading-relaxed mt-2">
+          Lorem ipsum dolor sit amet consectetur. Et diam suspendisse non risus integer gravida ut.
+          Vitae vulputate amet iaculis in nullam venenatis eget laoreet. Posuere purus blandit adipiscing
+          risus volutpat vitae viverra a viverra. Elementum faucibus tempor dapibus consectetur.
         </p>
         <div class="mt-4">
-          <button class="text-white font-semibold text-[clamp(0.5rem,2.8vw,1.8rem)] bg-[#003b6d] px-6 py-2 rounded-xl hover:bg-blue-950 transition-all duration-300 explore">
+          <button
+            class="close-popup text-white font-semibold text-[clamp(0.8rem,2.8vw,1.2rem)]
+                  bg-[#003b6d] px-6 py-2 rounded-xl hover:bg-blue-950 transition-all duration-300"
+          >
             Explore
           </button>
         </div>
       </div>
-      
-      <!-- The car image (75% width) -->
+  
       <img src="images/white-car.png" alt="white car" class="highlander w-3/4 md:w-[75%]">
     </div>
   </section>
@@ -195,6 +210,9 @@
 
 
   <section id="future-car-listing">
+    <h1 class="text-center font-bold tracking-wider text-[clamp(1.3rem,3.4vw,3.8rem)] text-[#003b6d]">
+      Featured Listing
+    </h1>
     <div class="container">
       <div class="swiper swiper1">
         <div class="swiper-wrapper">
@@ -205,161 +223,152 @@
 
 
   <!-- Trusted Brand -->
-  <section id="Trusted-brand">
-    <div class="flex-col m-30">
-      <h1 class="text-center font-bold tracking-wider text-[clamp(1.3rem,3.4vw,3.8rem)] text-[#003b6d]">
-        Trusted Brands
-      </h1>
-      <div class="brands">
-        <div class="brand-image flex justify-center">
-          <img src="images/brands/Toyota.png" alt="Toyota">
-        </div>
-        <div class="brand-image flex justify-center">
-          <img src="images/brands/volkswagen.png" alt="volkswagen">
-        </div>
-        <div class="brand-image flex justify-center">
-          <img src="images/brands/ford.png" alt="ford">
-        </div>
-        <div class="brand-image flex justify-center">
-          <img src="images/brands/volvo.png" alt="volvo">
-        </div>
-        <div class="brand-image flex justify-center">
-          <img src="images/brands/mercedes-benz.png" alt="mercedes-benz">
-        </div>
-        <div class="brand-image flex justify-center">
-          <img src="images/brands/bentley.png" alt="bentley">
-        </div>
-        <div class="brand-image flex justify-center">
-          <img src="images/brands/Stellantis.png" alt="Stellantis">
-        </div>
-        <div class="brand-image flex justify-center">
-          <img src="images/brands/BMW.png" alt="BMW">
-        </div>
-      </div>
-    </section>
-
-    <section id="Testimonial-Section">
-    <div class="testimonial">
-        <!-- Testimonial Header -->
-        <div id="testimo-head">
-          <h4 class="text-center text- font-bold tracking-wider text-[#003b6d] text-[clamp(1.3rem,3.4vw,3.8rem)]">
-            Testimonial
-          </h1>
-        </div> 
-
-        <!-- Testimonial Section -->
-      <div class="container-two">
-        <div class="swiper swiper-testimonials">
-          <div class="swiper-wrapper testimonial-wrapper">
-            <!-- Slides will be injected here -->
-          </div>
-          <div class="swiper-pagination testimonial-pagination"></div>
-        </div>
-      </div>
-
-          
-      
+<section id="Trusted-brand">
+<div class="flex-col m-30">
+  <h1 class="text-center font-bold tracking-wider text-[clamp(1.3rem,3.4vw,3.8rem)] text-[#003b6d]">
+    Trusted Brands
+  </h1>
+  <div class="brands">
+    <div class="brand-image flex justify-center">
+      <img src="images/brands/Toyota.png" alt="Toyota">
     </div>
-    
-    </section>
+    <div class="brand-image flex justify-center">
+      <img src="images/brands/volkswagen.png" alt="volkswagen">
+    </div>
+    <div class="brand-image flex justify-center">
+      <img src="images/brands/ford.png" alt="ford">
+    </div>
+    <div class="brand-image flex justify-center">
+      <img src="images/brands/volvo.png" alt="volvo">
+    </div>
+    <div class="brand-image flex justify-center">
+      <img src="images/brands/mercedes-benz.png" alt="mercedes-benz">
+    </div>
+    <div class="brand-image flex justify-center">
+      <img src="images/brands/bentley.png" alt="bentley">
+    </div>
+    <div class="brand-image flex justify-center">
+      <img src="images/brands/Stellantis.png" alt="Stellantis">
+    </div>
+    <div class="brand-image flex justify-center">
+      <img src="images/brands/BMW.png" alt="BMW">
+    </div>
+  </div>
+</section>
+
+<section id="Testimonial-Section">
+<div class="testimonial">
+    <!-- Testimonial Header -->
+    <div id="testimo-head">
+      <h4 class="text-center text- font-bold tracking-wider text-[#003b6d] text-[clamp(1.3rem,3.4vw,3.8rem)]">
+        Testimonial
+      </h1>
+    </div> 
+
+    <!-- Testimonial Section -->
+  <div class="container-two w-full">
+    <div class="swiper swiper-testimonials w-full">
+      <div class="swiper-wrapper testimonial-wrapper">
+        <!-- Slides will be injected here -->
+      </div>
+      <div class="swiper-pagination testimonial-pagination"></div>
+    </div>
+  </div>
+
+      
+  
+</div>
+
+</section>
 
 <section id="footer-section">
 <!-- Footer -->
-<footer class="bg-[#003b6d] text-white py-10 px-6">
-  <div class="max-w-6xl mx-auto">
+    <footer class="bg-[#003b6d] text-white py-10 px-6">
+      <div class="max-w-6xl mx-auto">
 
-    <!-- First Container -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-center md:text-left">
-      
-      <!-- Navigation -->
-      <div>
-        <h2 class="font-bold text-lg mb-3">Navigation</h2>
-        <ul class="space-y-2">
-          <li><a href="#" class="hover:underline">Home</a></li>
-          <li><a href="#" class="hover:underline">Car Listing</a></li>
-          <li><a href="#" class="hover:underline">Search</a></li>
-          <li><a href="#" class="hover:underline">Testimonial</a></li>
-          <li><a href="#" class="hover:underline">Footer</a></li>
-        </ul>
-      </div>
+        <!-- First Container -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-center md:text-left">
+          
+          <!-- Navigation -->
+          <div>
+            <h2 class="font-bold text-lg mb-3">Navigation</h2>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">Home</a></li>
+              <li><a href="#" class="hover:underline">Car Listing</a></li>
+              <li><a href="#" class="hover:underline">Search</a></li>
+              <li><a href="#" class="hover:underline">Testimonial</a></li>
+              <li><a href="#" class="hover:underline">Footer</a></li>
+            </ul>
+          </div>
 
-      <!-- About Us -->
-      <div>
-        <h2 class="font-bold text-lg mb-3">About Us</h2>
-        <ul class="space-y-2">
-          <li><a href="#" class="hover:underline">About Us</a></li>
-          <li><a href="#" class="hover:underline">Our Services</a></li>
-          <li><a href="#" class="hover:underline">Car Appraisal</a></li>
-          <li><a href="#" class="hover:underline">Car Evaluation</a></li>
-          <li><a href="#" class="hover:underline">Car Insurance</a></li>
-        </ul>
-      </div>
+          <!-- About Us -->
+          <div>
+            <h2 class="font-bold text-lg mb-3">About Us</h2>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">About Us</a></li>
+              <li><a href="#" class="hover:underline">Our Services</a></li>
+              <li><a href="#" class="hover:underline">Car Appraisal</a></li>
+              <li><a href="#" class="hover:underline">Car Evaluation</a></li>
+              <li><a href="#" class="hover:underline">Car Insurance</a></li>
+            </ul>
+          </div>
 
-      <!-- Features -->
-      <div>
-        <h2 class="font-bold text-lg mb-3">Features</h2>
-        <ul class="space-y-2">
-          <li><a href="#" class="hover:underline">Sell Car</a></li>
-          <li><a href="#" class="hover:underline">Buy Car</a></li>
-          <li><a href="#" class="hover:underline">Platform Admin</a></li>
-        </ul>
-      </div>
+          <!-- Features -->
+          <div>
+            <h2 class="font-bold text-lg mb-3">Features</h2>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">Sell Car</a></li>
+              <li><a href="#" class="hover:underline">Buy Car</a></li>
+              <li><a href="#" class="hover:underline">Platform Admin</a></li>
+            </ul>
+          </div>
 
-      <!-- Subscribe -->
-      <div>
-        <h2 class="font-bold text-lg mb-3">Subscribe to our Newsletter</h2>
-        <div class="flex flex-col md:flex-row items-center bg-white rounded-lg overflow-hidden">
-          <input type="email" placeholder="Enter your email" class="p-2 w-full text-black focus:outline-none">
-          <button class="bg-blue-600 px-4 py-2 text-white font-semibold hover:bg-blue-700 transition w-full md:w-auto">
-            Subscribe
-          </button>
+          <!-- Subscribe -->
+          <div>
+            <h2 class="font-bold text-lg mb-3">Subscribe to our Newsletter</h2>
+            <div class="flex flex-col md:flex-row items-center bg-white rounded-lg overflow-hidden">
+              <input type="email" placeholder="Enter your email" class="p-2 w-full text-black focus:outline-none">
+              <button class="bg-blue-600 px-4 py-2 text-white font-semibold hover:bg-blue-700 transition w-full md:w-auto">
+                Subscribe
+              </button>
+            </div>
+            <p class="mt-3 text-sm text-gray-300">
+              Lorem ipsum dolor sit amet consectetur. Amet adipiscing enim enim ac aenean facilisis eget sit nibh. 
+              Egestas aliquam congue congue massa scelerisque.
+            </p>
+          </div>
+
         </div>
-        <p class="mt-3 text-sm text-gray-300">
-          Lorem ipsum dolor sit amet consectetur. Amet adipiscing enim enim ac aenean facilisis eget sit nibh. 
-          Egestas aliquam congue congue massa scelerisque.
-        </p>
+
+        <!-- Second Container -->
+        <div class="flex flex-col md:flex-row items-center justify-between border-t border-gray-500 pt-6 text-center md:text-left">
+          
+          <!-- AutoBuy -->
+          <div class="text-xl font-bold">AutoBuy</div>
+
+          <!-- Social Media Links -->
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-white text-2xl"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-white text-2xl"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-white text-2xl"><i class="fa-brands fa-invision"></i></a>
+            <a href="#" class="text-white text-2xl"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+
+        </div>
+
       </div>
-
-    </div>
-
-    <!-- Second Container -->
-    <div class="flex flex-col md:flex-row items-center justify-between border-t border-gray-500 pt-6 text-center md:text-left">
-      
-      <!-- AutoBuy -->
-      <div class="text-xl font-bold">AutoBuy</div>
-
-      <!-- Social Media Links -->
-      <div class="flex space-x-4 mt-4 md:mt-0">
-        <a href="#" class="text-white text-2xl"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" class="text-white text-2xl"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="text-white text-2xl"><i class="fa-brands fa-invision"></i></a>
-        <a href="#" class="text-white text-2xl"><i class="fa-brands fa-twitter"></i></a>
-      </div>
-
-    </div>
-
-  </div>
-</footer>
+    </footer>
 </section>
-<!-- 
-<div class="testimonial-card">
-  <div class="testimonial-text">
-    <p>${testimonial.content}</p>
-  </div>
-  <div class="testimonial-img">
-    <img src="images/testimony/${testimonial.image}" alt="${testimonial.name}">
-  </div>
-  <div class="testimonial-info">
-    <p>${testimonial.name} <br> ${testimonial.infor}</p>
-  </div>
-</div> -->
 
 <!-- swiper script -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <!-- main js -->
 <script src="scripts/main.js"></script>
+
 <!-- like icon -->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>

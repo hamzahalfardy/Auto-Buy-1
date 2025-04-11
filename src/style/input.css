@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Baumans&family=Concert+One&family=Hind+Siliguri:wght@300;400;500;600;700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Oxygen:wght@300;400;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-
   *,
   *::before,
   *::after{
@@ -44,14 +43,14 @@ body {
 
 /* Ensure Highlander (Car Image) is 75% width with right space */
 .highlander {
-  width: 75%; /* Always 75% width */
-  margin-right: 20px; /* Add space on the right */
+  width: 75%;
+  margin-right: 20px; 
 }
 
 @media (max-width: 768px) {
   .highlander {
-    width: 90%; /* Slightly bigger on mobile */
-    margin-right: 0; /* No extra space on small screens */
+    width: 90%; 
+    margin-right: 0;
   }
 }
 
@@ -118,15 +117,6 @@ body {
   }
 }
 
-
-
-.nvg{
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-}
 @media (min-width: 480px){
   .nvg{
     display: flex;
@@ -143,9 +133,6 @@ body {
   align-content: center;
   }
 }
-
-
-
 
 /*      Futured Listing         */
 
@@ -166,6 +153,18 @@ body {
   margin-bottom: 50px;
 }
 
+.swiper-slide h3{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.swiper-slide p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 15px;
+}
 .caption{
   position: absolute;
   left: 0;
@@ -187,19 +186,16 @@ body {
 }
 
 .caption h1{
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
+  font-family: "Baumans", system-ui;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-  letter-spacing: 1px;
   color: #fff;
   cursor: pointer;
 }
+
 ion-icon{
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   opacity: 0.65;
   transition: all 0.5s ease;
   cursor: pointer;
@@ -237,12 +233,9 @@ ion-icon.pulse{
   cursor: grab;
   user-select: none;
   overflow: hidden;
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
+  font-family: "Baumans", system-ui;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-  letter-spacing: 1px;
   cursor: pointer;
 }
 
@@ -252,31 +245,29 @@ ion-icon.pulse{
 }
 
 .swiper-slide h1{
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
+  font-family: "Baumans", system-ui;
+  font-weight: 600;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 800;
   letter-spacing: 1px;
   cursor: pointer;
 }
-
 
 .swiper-wrapper{
   transition-timing-function: linear !important;
   margin-top: 20px;
   margin-bottom: 20px;
+  padding-bottom: 3rem;
 }
 
 
-
-
-/*       testimonial Section      */
-
 /* Testimonial Swiper Specific Styles */
+
 .swiper-testimonials {
   width: 100%;
   padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .testimonial-wrapper {
@@ -311,7 +302,7 @@ ion-icon.pulse{
 .testimonial-bottom {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 /* Image on left */
@@ -333,27 +324,49 @@ ion-icon.pulse{
 
 /* Scoped Pagination Styling */
 .testimonial-pagination {
-  text-align: center;
-  margin-top: 10px;
+  margin-top: 2.5rem;
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  /* background: rgba(0, 255, 0, 0.1);  */
 }
+
+.testimonial-pagination > span,
+.testimonial-pagination .swiper-pagination-bullet {
+  margin: 0 4px;
+}
+
 
 .testimonial-pagination .swiper-pagination-bullet {
   background: #ccc;
-  opacity: 0.6;
+  opacity: 3;
   transition: all 0.3s;
 }
 
 .testimonial-pagination .swiper-pagination-bullet-active {
   background: #007aff;
-  opacity: 1;
+  opacity: 5;
 }
 
+.swiper-pagination {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.swiper-pagination.testimonial-pagination {
+  width: 100% !important;
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 2.5rem;
+}
 
 /*       Footers       */
 .footer-sec-chd{
   display: flex;
   flex-direction: column-reverse;
-  /* margin: 50px; */
   justify-content: center;
   margin-left: 70px;
   margin-right: 50px;
