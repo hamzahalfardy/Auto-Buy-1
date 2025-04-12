@@ -37,7 +37,34 @@ const menuBtn = document.getElementById('menu-btn');
     }, 500); // must match the `duration-500`
   });
 
+    // Searched Car Section
 
+    document.addEventListener("DOMContentLoaded", function () {
+      const swiper = new Swiper(".swiper-search", {
+        slidesPerView: 1, // 1 image per slide
+        spaceBetween: 0,
+        loop: true, // Loop through the images
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          }
+        }
+      });
+    });
+    
 class Cars {
   constructor({ image, model, infor, order}) {
     this.image = image;
@@ -148,7 +175,7 @@ let carHTML = ''
 
 cars.forEach(car => {
   carHTML += `
-  <div class="swiper-slide">
+  <div class="swiper-slide futured-slide">
     <img src="images/cars/${car.image}" alt="Car" class="car-image">
           <h3 class="car-name">${car.model}</h3>
           <p class="abt-car">
@@ -161,26 +188,40 @@ cars.forEach(car => {
   </div>`        
 });
 
-const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+// futured Listing Section
+const swiperWrapper = document.querySelector('.futured-wrapper');
 swiperWrapper.innerHTML = carHTML;
 
 
 // Swiper Section
 
-const container = document.querySelector('.swiper');
+const container = document.querySelector('.futured-swiper');
 const likeBtns = document.querySelectorAll('.like-btn');
 
-var swiper = new Swiper(".swiper1", {
+var swiper = new Swiper(".futured-swiper", {
+  slidesPerView: 3,
   spaceBetween: 30,
-  slidesPerView: "auto",
   loop: true,
-  speed: 12000,
-  freeMode:true,
-  allowTouchMove: false,
   autoplay: {
-    delay: 0,
+    delay: 3000,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
   },
 });
+
 
 function stopAutoPlay() {
   const swiperTranslate = swiper.getTranslate();

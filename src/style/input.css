@@ -134,6 +134,9 @@ body {
   }
 }
 
+
+
+
 /*      Futured Listing         */
 
 .car-image {
@@ -142,25 +145,25 @@ body {
   /* object-fit: cover; */
 }
 
-.container {
+.container-one {
   width: 100%;
 }
 
-.swiper{
+.futured-swiper{
   width: 100%;
   /* padding: 50px 0; */
   margin-top: 25px;
   margin-bottom: 50px;
 }
 
-.swiper-slide h3{
+.futured-slide h3{
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 20px;
   padding: 15px;
 }
 
-.swiper-slide p{
+.futured-slide p{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   padding: 15px;
@@ -181,7 +184,7 @@ body {
   
 }
 
-.swiper-slide:hover .caption {
+.futured-slide:hover .caption {
   transform: translateY(0)
 }
 
@@ -224,7 +227,7 @@ ion-icon.pulse{
 }
 
 
-.swiper-slide {
+.futured-slide {
   color: #003b6d;
   background: white;
   max-width: 400px;
@@ -239,12 +242,12 @@ ion-icon.pulse{
   cursor: pointer;
 }
 
-.swiper-slide img {
+.futured-slide img {
   object-fit: cover;
   pointer-events: none;
 }
 
-.swiper-slide h1{
+.futured-slide h1{
   font-family: "Baumans", system-ui;
   font-weight: 600;
   font-style: normal;
@@ -252,7 +255,7 @@ ion-icon.pulse{
   cursor: pointer;
 }
 
-.swiper-wrapper{
+.futured-wrapper{
   transition-timing-function: linear !important;
   margin-top: 20px;
   margin-bottom: 20px;
