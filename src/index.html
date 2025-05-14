@@ -23,24 +23,41 @@
     <!-- Nav bar -->
     <nav class="relative container mx-auto p-6">
       <!-- Flex Container -->
-      <div class="flex items-center justify-between bg-white">
+      <div class="flex items-center justify-between">
         <!-- Logo -->
-        <div class="pt-2">
+        <div class="pt-2 ">
           <img src="images/carxperto.png" alt="logo" class="w-40 md:w-50 lg:w-56">
         </div>
   
         <!-- Desktop Menu -->
-        <div id="menu" class="hidden md:flex space-x-8 tracking-wide font-sans text-gray-600 text-lg md:text-base sm:text-sm">
-          <a href="#home" class="hover:border-b-2 hover:border-[#003b6d]">Home</a>
-          <a href="#car-listing" class="hover:border-b-2 hover:border-[#003b6d]">Car Listing</a>
-          <a href="#about" class="hover:border-b-2 hover:border-[#003b6d]">About Us</a>
-          <a href="#features" class="hover:border-b-2 hover:border-[#003b6d]">Features</a>
+        <div id="menu" class="hidden md:flex space-x-10 tracking-wide font-sans text-gray-500 md:text-base sm:text-sm">
+          <a href="#home" class="relative group text-[1.1rem] text-gray-500">
+            Home
+            <span class="after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#0D3D3D] after:transition-all after:duration-300 after:origin-center group-hover:after:w-full group-hover:after:left-0 group-hover:after:right-0"></span>
+          </a>
+          <a href="#car-listing" class="relative group text-[1.1rem] text-gray-500">
+            Car Listing
+            <span class="after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#0D3D3D] after:transition-all after:duration-300 after:origin-center group-hover:after:w-full group-hover:after:left-0 group-hover:after:right-0"></span>
+          </a>
+          <a href="#about" class="relative group text-[1.1rem] text-gray-500">
+            About Us
+            <span class="after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#0D3D3D] after:transition-all after:duration-300 after:origin-center group-hover:after:w-full group-hover:after:left-0 group-hover:after:right-0"></span>
+          </a>
+          <a href="#features" class="relative group text-[1.1rem] text-gray-500">
+            Features
+            <span class="after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#0D3D3D] after:transition-all after:duration-300 after:origin-center group-hover:after:w-full group-hover:after:left-0 group-hover:after:right-0"></span>
+          </a>
         </div>
+                
   
         <!-- Desktop Buttons -->
         <div class="hidden md:flex space-x-8 items-center">
-          <a href="sign-up.html" target="_blank" class="font-semibold bg-[#003b6d] px-5 py-2 rounded-lg text-white hover:bg-[#002b50]">Sign up</a>
-          <a href="sign-in.html"><i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i></a>
+          <a href="sign-up.html" target="_blank" class="font-semibold bg-[#003b6d] px-5 py-2 rounded-lg text-white hover:bg-[#002b50]">
+            Sign up
+          </a>
+          <a href="sign-in.html">
+            <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
+          </a>
         </div>
   
         <!-- Hamburger Button -->
@@ -51,7 +68,9 @@
     </nav>
   
     <!-- Backdrop -->
-    <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+    <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40">
+      
+    </div>
   
     <!-- Slide-in Mobile Menu -->
     <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[70%] max-w-[280px] bg-white z-50 p-6 flex flex-col space-y-6 text-lg text-gray-700 transform translate-x-full transition-transform duration-300 md:hidden shadow-lg">
@@ -76,7 +95,7 @@
   
   <section id="the-big-highlander" class="px-4">
     <!-- Container with relative positioning -->
-    <div class="msg-highlander flex flex-col md:flex-row justify-center items-center md:items-end relative mt-10 mb-10">
+    <div class="msg-highlander flex flex-col md:flex-row  items-center md:items-end relative mt-10 mb-10">
       
       <!-- Popup Message -->
       <div
@@ -103,7 +122,7 @@
         </div>
       </div>
   
-      <img src="images/white-car.png" alt="white car" class="highlander w-3/4 md:w-[75%]">
+      <img src="images/white-car.png" alt="white car" class="highlander w-3/4  mr-0">
     </div>
   </section>
     
@@ -124,15 +143,16 @@
           <div class="flex flex-col gap-2">
             <label for="Make" class="text-xl font-montserrat text-black text-left">Make</label>
             
-            <select id="car-make" name="cars"
+            <select for="Make" id="car-make" name="cars"
               class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
               <option value="">Select Car Make</option>
-              <option value="Toyota">Toyota</option>
-                <option value="Volvo">Volvo</option>
-                <option value="Stellantis">Stellantis</option>
-                <option value="Bentley">Bentley</option>
-                <option value="Ford">Ford</option>
+                <option value="Tesla">Tesla</option>
+                <option value="Acura">Acura</option>
+                <option value="Honda">Honda</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Volkswagen">Volkswagen</option>
                 <option value="BMW">BMW</option>
+                <option value="Ford">Ford</option>
             </select>
           </div>
     
@@ -141,7 +161,7 @@
             <label for="Model" class="text-xl font-montserrat text-black text-left">Model</label>
             <select id="car-model" name="cars"
               class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
-              <option value="">Select Make</option>
+              <option for="Model" value="">Select Model</option>
             </select>
           </div>
     
@@ -154,71 +174,43 @@
             </select>
           </div>
     
-          <!-- Car Engine -->
+          <!-- Car Price -->
           <div class="flex flex-col gap-2">
-            <label for="Price" class="text-xl font-montserrat text-black text-left">Fuel</label>
-            <select id="car-fuel" name="cars"
+            <label for="Price" class="text-xl font-montserrat text-black text-left">Price</label>
+            <select id="car-price" name="cars"
               class="rounded-sm p-3 w-40 bg-[rgba(54,69,79,0.05)] text-black focus:ring focus:ring-blue-300">
-                <option value="low">Select Fuel type</option>
-                <option value="Gasoline">Gasoline</option>
-                <option value="Diesel">Diesel</option>
-                <option value="Electric">Electric</option>
-                <option value="Hybrid">Hybrid</option>
+                <option value="">Select Price</option>
             </select>
           </div>
     
           <!-- Search Button -->
           <div class="flex items-center">
-            <button onclick="searchCar()"
+            <button id="searchBtn"
               class="text-gray-50 font-semibold text-xl bg-[#003b6d] w-30 h-15 px-6 rounded-xl text-center font-mono hover:bg-blue-950 transition-all duration-300">
               Search
             </button>
           </div>
-          
         </div>
+        <p id="search-error"></p>
       </div>
     </div>
   </section>
   
   <section id="Car information">
     <!-- searched car -->
-    <div class="min-h-screen flex items-center justify-center relative mt-10 bg-blue-50">
+    <div class="contain-search hidden min-h-screen items-center justify-center relative mt-10 mb-10">
       <!-- Car details box (Centered) -->
-      <div class="relative z-10 car-details w-full max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+      <div class="displayResult relative z-10 car-details w-full max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
         <h3 class="text-center text-[clamp(0.8rem,1.8vw,2rem)] text-teal-600 font-extrabold mb-5 mt-5" id="car-title">
           Car Name
         </h3>
     
         <div class="container-three">
+        </div>
           <div class="swiper swiper-search h-[100vh] sm:h-[100vh] md:h-[60vh] lg:h-[70vh]">
             <div class="swiper-wrapper wrapper-search">
-
-              <div class="swiper-slide flex items-center justify-center">
-                <img src="images/cars/image3.webp" alt="Car Image" class="w-full h-full object-cover rounded-lg">
-              </div>
-
-              <div class="swiper-slide flex items-center justify-center">
-                <img src="images/cars/image3.webp" alt="Car Image" class="w-full h-full object-cover rounded-lg">
-              </div>
-
-              <div class="swiper-slide flex items-center justify-center">
-                <img src="images/cars/image3.webp" alt="Car Image" class="w-full h-full object-cover rounded-lg">
-              </div>
-              <div class="swiper-slide flex items-center justify-center">
-                <img src="images/cars/image3.webp" alt="Car Image" class="w-full h-full object-cover rounded-lg">
-              </div>
-
-              <div class="swiper-slide flex items-center justify-center">
-                <img src="images/cars/image3.webp" alt="Car Image" class="w-full h-full object-cover rounded-lg">
-              </div>
-
-              <div class="swiper-slide flex items-center justify-center">
-                <img src="images/cars/image3.webp" alt="Car Image" class="w-full h-full object-cover rounded-lg">
-              </div>
-
-              <div class="swiper-slide flex items-center justify-center">
-                <img src="images/cars/image3.webp" alt="Car Image" class="w-full h-full object-cover rounded-lg">
-              </div>
+              
+              <!-- searched image swipper was injected here -->
 
             </div>
             <div class="swiper-pagination search-pagination"></div>
@@ -236,11 +228,11 @@
           <p class="text-teal-900"><strong>Fuel Type:</strong> <span id="car-fuel-display">Loading...</span></p>
         </div>
     
-        <button class="deleteBtn flex text-[1rem] text-red-600 mt-5 ml-auto">
+        <button class="deleteBtn flex text-red-600 mt-5 ml-auto text-[clamp(0.8rem,1.8vw,2rem)] font-extrabold">
           Close
         </button>
       </div>
-    </div>
+
   </section>
 
 
@@ -292,28 +284,24 @@
 </section>
 
 <section id="Testimonial-Section">
-<div class="testimonial">
+  <div class="testimonial mx-auto">
     <!-- Testimonial Header -->
     <div id="testimo-head">
-      <h4 class="text-center text- font-bold tracking-wider text-[#003b6d] text-[clamp(1.3rem,3.4vw,3.8rem)]">
+      <h4 class="text-center font-bold tracking-wider text-[#003b6d] text-[clamp(1.3rem,3.4vw,3.8rem)]">
         Testimonial
-      </h1>
+      </h4>
     </div> 
 
     <!-- Testimonial Section -->
-  <div class="container-two w-full">
-    <div class="swiper swiper-testimonials w-full">
-      <div class="swiper-wrapper testimonial-wrapper">
-        <!-- Slides will be injected here -->
+    <div class="container-two w-full">
+      <div class="swiper swiper-testimonials w-full">
+        <div class="swiper-wrapper testimonial-wrapper">
+          <!-- Slides will be injected here -->
+        </div>
+        <div class="swiper-pagination testimonial-pagination"></div>
       </div>
-      <div class="swiper-pagination testimonial-pagination"></div>
     </div>
   </div>
-
-      
-  
-</div>
-
 </section>
 
 <section id="footer-section">
@@ -395,11 +383,13 @@
     </footer>
 </section>
 
+
+
 <!-- swiper script -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <!-- main js -->
-<script src="scripts/main.js"></script>
+<script type="Module" src="scripts/main.js"></script>
 
 <!-- like icon -->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

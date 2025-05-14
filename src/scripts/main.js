@@ -1,3 +1,8 @@
+import { cars } from "./datas/cars.js";
+import { testimonials } from "./datas/testimonial.js";
+import { handleMakeChange, handleModelChange } from "./datas/searchEgn.js";
+import { products } from "./datas/product.js";
+
 // Hamburger Button
 const menuBtn = document.getElementById('menu-btn');
   const closeBtn = document.getElementById('close-btn');
@@ -34,18 +39,104 @@ const menuBtn = document.getElementById('menu-btn');
     // Wait for fade-out before hiding
     setTimeout(() => {
       popup.classList.add('hidden');
-    }, 500); // must match the `duration-500`
+    }, 500);
   });
 
     // Searched Car Section
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const swiper = new Swiper(".swiper-search", {
-        slidesPerView: 1, // 1 image per slide
+    
+    
+
+  
+
+  // the search section
+  const carMake = document.querySelector('#car-make');
+  const carModel = document.querySelector('#car-model');
+  const carYear = document.querySelector('#car-year');
+  const carPrice = document.querySelector('#car-price');
+  const searchBtn = document.querySelector('#searchBtn');
+const displaySearch = document.querySelector('.displayResult');
+  const searchedContainer = document.querySelector('.contain-search')
+  
+  carMake.addEventListener('change', handleMakeChange);
+  carModel.addEventListener('change', handleModelChange);
+  searchBtn.addEventListener('click', searchProducts);
+  
+  let searchSwiper = null;
+
+  function searchProducts() {
+    const make = carMake.value.trim();
+    const model = carModel.value.trim();
+    const year = parseInt(carYear.value.trim());
+    const price = carPrice.value.trim();
+  
+    const errorMsg = document.getElementById('search-error');
+  
+    if (!make || !model || !year || !price) {
+      errorMsg.classList.add('fade');
+      errorMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #ff5f3b;"></i> Please select in all fields';
+      setTimeout(() => errorMsg.classList.add('fade-out'), 3000);
+      searchedContainer.classList.add('none');
+      return;
+    }
+  
+    // Show the container
+    searchedContainer.classList.remove('none');
+    searchedContainer.style.display = 'block';
+    displaySearch.innerHTML = ''; 
+  
+    const matched = products.filter(product =>
+      product.make === make &&
+      product.model === model &&
+      product.year === year &&
+      product.price === price
+    );
+  
+    if (matched.length > 0) {
+      const product = matched[0];
+  
+      const slides = product.image.map(img => `
+        <div class="swiper-slide flex items-center justify-center">
+          <img src="${img}" alt="Car Image" class="w-full h-full object-cover rounded-lg">
+        </div>
+      `).join('');
+  
+      displaySearch.innerHTML = `
+        <h3 class="text-center text-[clamp(0.8rem,1.8vw,2rem)] text-teal-600 font-extrabold mb-5 mt-5">
+          ${product.make} ${product.model}
+        </h3>
+  
+        <div class="container-three">
+          <div class="swiper swiper-search h-[60vh]">
+            <div class="swiper-wrapper">${slides}</div>
+            <div class="swiper-pagination search-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+  
+        <div class="flex flex-col justify-items-start mt-[2rem] space-y-4">
+          <p class="text-teal-900"><strong>Make:</strong> ${product.make}</p>
+          <p class="text-teal-900"><strong>Model:</strong> ${product.model}</p>
+          <p class="text-teal-900"><strong>Year:</strong> ${product.year}</p>
+          <p class="text-teal-900"><strong>Price:</strong> ${product.price}</p>
+          <p class="text-teal-900"><strong>Description:</strong> ${product.discription}</p>
+        </div>
+  
+        <button class="deleteBtn flex text-red-600 mt-5 ml-auto text-[clamp(0.8rem,1.8vw,2rem)] font-extrabold">Close</button>
+      `;
+  
+      if (searchSwiper) {
+        searchSwiper.destroy(true, true);
+        searchSwiper = null;
+      }
+  
+      searchSwiper = new Swiper(".swiper-search", {
+        slidesPerView: 1,
         spaceBetween: 0,
-        loop: true, // Loop through the images
+        loop: true,
         pagination: {
-          el: ".swiper-pagination",
+          el: ".search-pagination",
           clickable: true,
         },
         navigation: {
@@ -53,124 +144,44 @@ const menuBtn = document.getElementById('menu-btn');
           prevEl: ".swiper-button-prev",
         },
         breakpoints: {
-          640: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          1024: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          }
+          640: { slidesPerView: 1, spaceBetween: 10 },
+          1024: { slidesPerView: 1, spaceBetween: 20 }
         }
       });
-    });
-    
-class Cars {
-  constructor({ image, model, infor, order}) {
-    this.image = image;
-    this.model = model;
-    this.infor = infor;
-    this.order = order;
-  }
+  
+      document.querySelector('.deleteBtn').addEventListener('click', () => {
+        searchedContainer.classList.add('none');
+        if (searchSwiper) {
+          searchSwiper.destroy(true, true);
+          searchSwiper = null;
+        }
+      });
+  
+    } else {
+      displaySearch.innerHTML = `
+    <p id="not-found-msg" class="text-red-600 font-bold text-center text-lg mt-4">
+      <i class="fa-solid fa-circle-xmark"></i> No matching cars found.
+    </p>
+  `;
+
+  searchedContainer.classList.remove('none');
+  searchedContainer.style.display = 'block';
+
+  setTimeout(() => {
+  displaySearch.style.transition = 'opacity 0.5s ease';
+  displaySearch.style.opacity = '0';
+
+    setTimeout(() => {
+    displaySearch.innerHTML = ''; 
+    searchedContainer.style.display = 'none';
+    displaySearch.innerHTML = '';
+    displaySearch.style.display = 'none';
+    displaySearch.style.opacity = '1'; 
+  }, 500);
+}, 3000);
 }
-
-const cars = [
-  new Cars({
-    image: 'image4.webp',
-    model: 'GMC Terrain',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission ...',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image1.webp',
-    model: 'Kia Cadenza',
-    infor: '2016 Kia Cadenza looks and feels more expensive than you’d expect with its price and Kia badge, and it scored exceedingly well (second place in its class) in J.D. Power’s dependability ranks for the year It won a Top Safety Pick award in its debut year . . .',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image2.webp',
-    model: 'Ford F-150',
-    infor: 'prices for Ford’s F-150 Lightning have stabilized for 2025. Pricing for the 2025 model increases just $100 from 2024 for each trim level, starting with the XLT at $65,190 (all prices include a $2,195 destination charge, where the $100 cost increase occurs)',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image3.webp',
-    model: 'GMC Terrain',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission and front ...',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image5.png',
-    model: 'GMC Terrain',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission and front',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image6.webp',
-    model: 'Nissan Versa',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission and front...',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image7.webp',
-    model: 'Mazda-3-2015',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission and front...',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image8.webp',
-    model: 'Toyota Corola',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission and front...',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image9.webp',
-    model: 'nissan-versa',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission and front...',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image10.webp',
-    model: '2026 Tesla',
-    infor: 'For model-year 2014-16, GMC’s compact SUV was available with two engines: a standard 2.4-liter four-cylinder engine good for 182 hp and an optional 3.6-liter V-6 engine with 301 hp. Both engines were paired with a six-speed automatic transmission and front...',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image11.webp',
-    model: '2026 Tesla',
-    infor: 'We owned a 2021 Tesla Model Y for 2.5 years as a long-term test car, reporting on efficiency, range, battery degradation, and what it was like living with the electric SUV and using it in our daily routines. The redesigned 2026 Model Y (nicknamed Model Y Juniper) is on sale now . . .',
-    order: 'Buy now',
-    
-  }),
-
-  new Cars({
-    image: 'image12.webp',
-    model: '2026 Tesla',
-    infor: 'We owned a 2021 Tesla Model Y for 2.5 years as a long-term test car, reporting on efficiency, range, battery degradation, and what it was like living with the electric SUV and using it in our daily routines. The redesigned 2026 Model Y (nicknamed Model Y Juniper) ...',
-    order: 'Buy now',
-  })
-]
-
+  }
+      
 let carHTML = ''
 
 cars.forEach(car => {
@@ -202,9 +213,12 @@ const likeBtns = document.querySelectorAll('.like-btn');
 var swiper = new Swiper(".futured-swiper", {
   slidesPerView: 3,
   spaceBetween: 30,
-  loop: true,
+  loop: true, 
+  centeredSlides: false, 
+  centeredSlidesBounds: false,
   autoplay: {
     delay: 3000,
+    disableOnInteraction: false,
   },
   breakpoints: {
     320: {
@@ -213,11 +227,11 @@ var swiper = new Swiper(".futured-swiper", {
     },
     640: {
       slidesPerView: 2,
-      spaceBetween: 30,
+      spaceBetween: 20,
     },
     1024: {
       slidesPerView: 3,
-      spaceBetween: 20,
+      spaceBetween: 30,
     },
   },
 });
@@ -247,61 +261,6 @@ likeBtns.forEach((likeBtn) => {
   });
 });
 
-// Testimonial Data
-class Testimonial {
-  constructor({ content, image, name, infor }) {
-    this.content = content;
-    this.image = image;
-    this.name = name;
-    this.infor = infor;
-  }
-}
-
-const testimonials = [
-  new Testimonial({
-    content: `"I've been using this website for a while now, and I'm amazed by the quality of service. The car valuation tool provided accurate estimates, and I found the perfect insur..."`,
-    image: 'test1.png',
-    name: 'John Doe',
-    infor: 'Car Owner'
-  }),
-  new Testimonial({
-    content: `"The car valuation tool is a game-changer! It helped me get a fair price for my car when I was selling it. Plus, the insurance quote feature saved me a lot of time and effort..."`,
-    image: 'test2.png',
-    name: 'Sarah M.',
-    infor: 'Happy Customer'
-  }),
-  new Testimonial({
-    content: `"I can't thank this website enough for the seamless experience. The car insurance quotes were spot on, and the valuation tool gave me confidence in my car's worth...`,
-    image: 'test3.png',
-    name: 'Michael John',
-    infor: 'Car Enthusiast'
-  }),
-  new Testimonial({
-    content: `"I’ve owned many cars, but none have matched the comfort and efficiency of this one. The interior feels premium, and the ride is incredibly smooth even on rough roads."`,
-    image: 'added1.png',
-    name: 'James Smith',
-    infor: 'Happy Customer'
-  }),
-  new Testimonial({
-    content: `"This car strikes the perfect balance between luxury and practicality. It looks great, drives even better, and fits my family comfortably on long trips."`,
-    image: 'added2.png',
-    name: 'James T',
-    infor: 'Happy Customer'
-  }),
-  new Testimonial({
-    content: `"From the moment I stepped into the showroom, the experience was amazing. The team helped me choose the perfect model for my lifestyle and budget."`,
-    image: 'added3.png',
-    name: 'Aminat Suaib',
-    infor: 'Car Enthusiast'
-  }),
-  new Testimonial({
-    content: `"I wasn’t even planning to buy a car that day, but one test drive changed everything. The handling is so smooth and responsive!. The car insurance quotes were spot on"`,
-    image: 'added4.png',
-    name: 'Daniel R',
-    infor: 'Car Enthusiast'
-  }),
-];
-
 // Inject testimonial slides
 const wrapper = document.querySelector('.testimonial-wrapper');
 wrapper.innerHTML = testimonials.map(testimonial => `
@@ -329,11 +288,11 @@ const testimonialSwiper = new Swiper('.swiper-testimonials', {
   loop: false,
   grabCursor: true,
   spaceBetween: 30,
-  watchOverflow: true, // ✅ Prevent slider overflow
-  centeredSlidesBounds: true, // ✅ Prevent last slide being pushed off screen
+    watchOverflow: true,
+  centeredSlidesBounds: true, 
 
   pagination: {
-    el: '.testimonial-pagination', // ✅ Unique selector
+    el: '.testimonial-pagination',
     clickable: true,
     dynamicBullets: true,
   },
