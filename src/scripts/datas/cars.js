@@ -92,7 +92,7 @@ export const cars = [
   new Cars({
     image: 'image11.webp',
     model: '2026 Tesla',
-    infor: 'We owned a 2021 Tesla Model Y for 2.5 years as a long-term test car, reporting on efficiency, range, battery degradation, and what it was like living with the electric SUV and using it in our daily routines. The redesigned 2026 Model Y (nicknamed Model Y Juniper) is on sale now . . .',
+    infor: 'We owned a 2021 Tesla Model Y for 2.5 years as a long-term test car, reporting on efficiency, range, battery degradation, and what it was like living with the electric SUV and using it in our daily routines. The redesigned 2026 Model Y  . . .',
     order: 'Buy now',
     
   }),

@@ -138,9 +138,10 @@ body {
 /*      Futured Listing         */
 
 .car-image {
-  width: 400px;
+  width: 100%;
   height: 250px;
-  /* object-fit: cover; */
+  object-fit: cover;
+  display: block;
 }
 
 
@@ -193,10 +194,16 @@ body {
   margin-top: 15px;
   font-weight: bolder;
   font-size: larger;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .container-one {
   width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem; /* Optional: add small side spacing */
+  box-sizing: border-box;
+  overflow: hidden; /* Important: hides any overflow glitch */
 }
 
 .futured-swiper{
@@ -278,18 +285,14 @@ ion-icon.pulse{
 
 
 .futured-slide {
-  color: #003b6d;
+  width: 100%;
   background: white;
-  max-width: 400px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  cursor: grab;
-  user-select: none;
   overflow: hidden;
   font-family: "Baumans", system-ui;
-  font-weight: 400;
-  font-style: normal;
   cursor: pointer;
+
 }
 
 .futured-slide img {
