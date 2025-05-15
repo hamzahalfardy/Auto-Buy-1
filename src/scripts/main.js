@@ -172,7 +172,7 @@ let carHTML = ''
 cars.forEach(car => {
   carHTML += `
   <div class="swiper-slide futured-slide">
-    <img src="images/cars/${car.image}" alt="Car" class="car-image">
+    <img src="src/images/cars/${car.image}" alt="Car" class="car-image">
           <h3 class="car-name">${car.model}</h3>
           <p class="abt-car">
           ${car.infor}
@@ -256,7 +256,7 @@ wrapper.innerHTML = testimonials.map(testimonial => `
       </div>
       <div class="testimonial-bottom">
         <div class="testimonial-img">
-          <img src="images/testimony/${testimonial.image}" alt="Name">
+          <img src="src/images/testimony/${testimonial.image}" alt="Name">
         </div>
         <div class="testimonial-info">
           <p>${testimonial.name} <br> ${testimonial.infor}</p>
