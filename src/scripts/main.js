@@ -64,124 +64,109 @@ const displaySearch = document.querySelector('.displayResult');
   
   let searchSwiper = null;
 
-  function searchProducts() {
-    const make = carMake.value.trim();
-    const model = carModel.value.trim();
-    const year = parseInt(carYear.value.trim());
-    const price = carPrice.value.trim();
-  
-    const errorMsg = document.getElementById('search-error');
-  
-    if (!make || !model || !year || !price) {
-      errorMsg.classList.add('fade');
-      errorMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #ff5f3b;"></i> Please select in all fields';
-      setTimeout(() => errorMsg.classList.add('fade-out'), 3000);
-      searchedContainer.classList.add('none');
-      return;
-    }
-  
-    // Show the container
-    searchedContainer.classList.remove('none');
-    searchedContainer.style.display = 'block';
-    displaySearch.innerHTML = ''; 
-  
-    const matched = products.filter(product =>
-      product.make === make &&
-      product.model === model &&
-      product.year === year &&
-      product.price === price
-    );
-  
-    if (matched.length > 0) {
-      const product = matched[0];
-  
-      const slides = product.image.map(img => `
-        <div class="swiper-slide flex items-center justify-center">
-          <img src="${img}" alt="Car Image" class="w-full h-full object-cover rounded-lg">
-        </div>
-      `).join('');
-  
-      displaySearch.innerHTML = `
-        <h3 class="text-center text-[clamp(0.8rem,1.8vw,2rem)] text-teal-600 font-extrabold mb-5 mt-5">
-          ${product.make} ${product.model}
-        </h3>
-  
-        <div class="container-three">
-          <div class="swiper swiper-search h-[60vh]">
-            <div class="swiper-wrapper">${slides}</div>
-            <div class="swiper-pagination search-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-        </div>
-  
-        <div class="flex flex-col justify-items-start mt-[2rem] space-y-4">
-          <p class="text-teal-900"><strong>Make:</strong> ${product.make}</p>
-          <p class="text-teal-900"><strong>Model:</strong> ${product.model}</p>
-          <p class="text-teal-900"><strong>Year:</strong> ${product.year}</p>
-          <p class="text-teal-900"><strong>Price:</strong> ${product.price}</p>
-          <p class="text-teal-900"><strong>Description:</strong> ${product.discription}</p>
-        </div>
-  
-        <button class="deleteBtn flex text-red-600 mt-5 ml-auto text-[clamp(0.8rem,1.8vw,2rem)] font-extrabold">Close</button>
-      `;
-  
-      if (searchSwiper) {
-        searchSwiper.destroy(true, true);
-        searchSwiper = null;
-      }
-  
-      searchSwiper = new Swiper(".swiper-search", {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: true,
-        pagination: {
-          el: ".search-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          640: { slidesPerView: 1, spaceBetween: 10 },
-          1024: { slidesPerView: 1, spaceBetween: 20 }
-        }
-      });
-  
-      document.querySelector('.deleteBtn').addEventListener('click', () => {
-        searchedContainer.classList.add('none');
-        if (searchSwiper) {
-          searchSwiper.destroy(true, true);
-          searchSwiper = null;
-        }
-      });
-  
-    } else {
-      displaySearch.innerHTML = `
-    <p id="not-found-msg" class="text-red-600 font-bold text-center text-lg mt-4">
-      <i class="fa-solid fa-circle-xmark"></i> No matching cars found.
-    </p>
-  `;
+function searchProducts() {
+  const make = carMake.value.trim().toLowerCase();
+  const model = carModel.value.trim().toLowerCase();
+  const year = parseInt(carYear.value.trim());
+  const price = carPrice.value.trim();
+
+  const errorMsg = document.getElementById('search-error');
+
+  if (!make || !model || !year || !price) {
+    errorMsg.classList.add('fade');
+    errorMsg.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #ff5f3b;"></i> Please select in all fields';
+    setTimeout(() => errorMsg.classList.add('fade-out'), 3000);
+    searchedContainer.classList.add('none');
+    return;
+  }
 
   searchedContainer.classList.remove('none');
   searchedContainer.style.display = 'block';
+  displaySearch.innerHTML = '';
 
-  setTimeout(() => {
-  displaySearch.style.transition = 'opacity 0.5s ease';
-  displaySearch.style.opacity = '0';
+  const matched = products.filter(product =>
+    product.make.toLowerCase() === make &&
+    product.model.toLowerCase() === model &&
+    product.year === year &&
+    product.price === price
+  );
 
+  if (matched.length > 0) {
+    const product = matched[0];
+    const slides = product.image.map(img => `
+      <div class="swiper-slide flex items-center justify-center">
+        <img src="${img}" alt="Car Image" class="w-full h-full object-cover rounded-lg">
+      </div>
+    `).join('');
+
+    displaySearch.innerHTML = `
+  <h3 id="search-title" class="text-center text-[clamp(0.8rem,1.8vw,2rem)] text-teal-600 font-extrabold mb-5 mt-5">
+    ${product.make} ${product.model}
+  </h3>
+
+  <div class="container-three">
+    <div class="swiper swiper-search h-[60vh]">
+      <div class="swiper-wrapper search-wrapper">
+        ${slides}
+      </div>
+      <div class="swiper-pagination search-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+  <div class="car-info mt-[2rem] space-y-4">
+    <p class="text-teal-900"><strong>Make:</strong> ${product.make}</p>
+    <p class="text-teal-900"><strong>Model:</strong> ${product.model}</p>
+    <p class="text-teal-900"><strong>Year:</strong> ${product.year}</p>
+    <p class="text-teal-900"><strong>Price:</strong> ${product.price}</p>
+    <p class="text-teal-900"><strong>Description:</strong> ${product.description || product.discription}</p>
+  </div>
+
+  <button class="deleteBtn flex text-red-600 mt-5 ml-auto text-[clamp(0.8rem,1.8vw,2rem)] font-extrabold">Close</button>
+`;
+
+    if (searchSwiper) {
+      searchSwiper.destroy(true, true);
+    }
+
+    searchSwiper = new Swiper(".swiper-search", {
+      slidesPerView: 1,
+      loop: true,
+      pagination: {
+        el: ".search-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
+    });
+
+    document.querySelector('.deleteBtn').addEventListener('click', () => {
+      searchedContainer.classList.add('none');
+      if (searchSwiper) {
+        searchSwiper.destroy(true, true);
+      }
+    });
+
+  } else {
+    displaySearch.innerHTML = `
+      <p id="not-found-msg" class="text-red-600 font-bold text-center text-lg mt-4">
+        <i class="fa-solid fa-circle-xmark"></i> No matching cars found.
+      </p>
+    `;
     setTimeout(() => {
-    displaySearch.innerHTML = ''; 
-    searchedContainer.style.display = 'none';
-    displaySearch.innerHTML = '';
-    displaySearch.style.display = 'none';
-    displaySearch.style.opacity = '1'; 
-  }, 500);
-}, 3000);
-}
+      displaySearch.style.transition = 'opacity 0.5s ease';
+      displaySearch.style.opacity = '0';
+      setTimeout(() => {
+        displaySearch.innerHTML = '';
+        searchedContainer.style.display = 'none';
+        displaySearch.style.opacity = '1';
+      }, 500);
+    }, 3000);
   }
-      
+}      
 let carHTML = ''
 
 cars.forEach(car => {

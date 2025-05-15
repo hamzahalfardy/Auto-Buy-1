@@ -1,16 +1,26 @@
-export function updateSelect(selectedElement, optionArray) {
-    // this adds option tag inside each domVariable added
-  selectedElement.innerHTML = `<option value="">Select</option>`
-  // this create this create option element for each array values
-    optionArray.forEach(optionValue => {
-      // creating element
-      const option = document.createElement('option');
-      // injecting value and text inside the created element
-      option.value = optionValue;
-      option.textContent = option.value;
-      // injecting the options inside each element
-      selectedElement.appendChild(option);
+export function updateSelect(selectElement, options) {
+  // Clear previous options
+  selectElement.innerHTML = '<option value="">Select</option>';
 
-    })
-  }
+  options.forEach(option => {
+    const optionElement = document.createElement('option');
+    optionElement.value = option; // Keep value as-is for accurate matching
+    optionElement.textContent = formatLabel(option); // Nice label for user
+    selectElement.appendChild(optionElement);
+  });
+}
 
+function formatLabel(text) {
+  if (typeof text === 'number') return text; // Don't format numbers (like years)
+  
+  // Capitalize each word, including hyphenated ones
+  return text
+    .split(' ')
+    .map(part =>
+      part
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ')
+    )
+    .join(' ');
+}

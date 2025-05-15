@@ -4,7 +4,7 @@ export const products = [
     id: 1,
     make: "Tesla",
     model: "model-x",
-    year: 2022,
+    year: 2020,
     price: "$61,595",
     image: [
       "images/search-car/image1_full_front.webp",
@@ -14,7 +14,7 @@ export const products = [
       "images/search-car/image1_front.webp",
       "images/search-car/image1_back.webp"]
     ,
-    discription: "2022 Tesla Model X - A high-performance all-electric SUV offering advanced autopilot features, futuristic design, and up to 348 miles of range. Priced at $61,595, it's ideal for luxury EV enthusiasts."
+    discription: "2020 Tesla Model X - A slightly older but still impressive electric SUV with spacious seating, Falcon Wing doors, and long-range capabilities. A premium choice at $40,675."
   },
   
 
@@ -22,7 +22,7 @@ export const products = [
     id: 2,
     make: "Tesla",
     model: "model-x",
-    year: 2020,
+    year: 2022,
     price: "$40,675",
     image: [
       "images/search-car/image2_full_front.webp",
@@ -34,49 +34,43 @@ export const products = [
     
     ]
     ,
-    discription: "2020 Tesla Model X - A slightly older but still impressive electric SUV with spacious seating, Falcon Wing doors, and long-range capabilities. A premium choice at $40,675."
+    discription: "2022 Tesla Model X - A high-performance all-electric SUV offering advanced autopilot features, futuristic design, and up to 348 miles of range. Priced at $61,595, it's ideal for luxury EV enthusiasts."
   },
   
 
-  {
-    id: 3,
-    make: "Tesla",
-    model: "Roadster",
-    year: 2008,
-    price: "$249,999",
-    image: [
-      "images/search-car/image3_full_front.webp",
-      "images/search-car/image3_full_back.webp",
-      "images/search-car/image3_front_sit.webp",
-      "images/search-car/image3_back_sit.webp",
-      "images/search-car/image3_front.webp",
-      "images/search-car/image3_back.webp"
+{
+  id: 3,
+  make: "Tesla",
+  model: "Roadster",
+  year: 2008,
+  price: "$249,999",
+  image: [
+    "images/search-car/image3_full_front.webp",
+    "images/search-car/image3_full_back.webp",
+    "images/search-car/image3_front_sit.webp",
+    "images/search-car/image3_back_sit.webp",
+    "images/search-car/image3_front.webp",
+    "images/search-car/image3_back.webp"
+  ],
+  description: "2008 Tesla Roadster - The first-ever electric sports car, combining lightweight carbon-fiber bodywork with thrilling acceleration. A collector's gem priced at $249,999."
+},
 
-    ],
-    discription: "2008 Tesla Roadster - The first-ever electric sports car, combining lightweight carbon-fiber bodywork with thrilling acceleration. A collector's gem priced at $249,999."
-
-  },
-  
-
-  {
-    id: 4,
-    make: "Tesla",
-    model: "Roadster",
-    year: 2011,
-    price: "$100,000",
-    image: [
-      "images/search-car/image4_full_front.webp",
-      "images/search-car/image4_full_back.webp",
-      "images/search-car/image4_front_sit.webp",
-      "images/search-car/image4_back_sit.webp",
-      "images/search-car/image4_front.webp",
-      "images/search-car/image4_back.webp"
-
-    ],
-    discription: "2011 Tesla Roadster - A rare    electric convertible offering quick acceleration and clean design, representing Tesla’s early innovation. Yours for $100,000."
-
-  },
-  
+{
+  id: 4,
+  make: "Tesla",
+  model: "Roadster",
+  year: 2011,
+  price: "$100,000",
+  image: [
+    "images/search-car/image4_full_front.webp",
+    "images/search-car/image4_full_back.webp",
+    "images/search-car/image4_front_sit.webp",
+    "images/search-car/image4_back_sit.webp",
+    "images/search-car/image4_front.webp",
+    "images/search-car/image4_back.webp"
+  ],
+  description: "2011 Tesla Roadster - A rare electric convertible offering quick acceleration and clean design, representing Tesla’s early innovation. Yours for $100,000."
+},
 
   {
     id: 5,
@@ -250,7 +244,7 @@ export const products = [
       "images/search-car/image13_back.webp"
 
     ],
-    description: "2025 Toyota GR Supra - This upgraded Supra model balances sharp looks and powerful turbocharged performance. Premium driving experience for $63,243."
+    discription: "2025 Toyota GR Supra - This upgraded Supra model balances sharp looks and powerful turbocharged performance. Premium driving experience for $63,243."
 
   },
 
@@ -269,7 +263,7 @@ export const products = [
       "images/search-car/image14_back.webp"
 
     ],
-    description: "2025 Volkswagen ID. Buzz - A modern electric van inspired by the classic Microbus, offering retro charm with spacious, tech-filled interior. Costs $67,763."
+    discription: "2025 Volkswagen ID. Buzz - A modern electric van inspired by the classic Microbus, offering retro charm with spacious, tech-filled interior. Costs $67,763."
 
   },
 
@@ -288,7 +282,7 @@ export const products = [
       "images/search-car/image15_back.webp"
 
     ],
-    description: "2025 Volkswagen ID. Buzz Pro S - A higher trim electric van with enhanced comfort, cutting-edge EV tech, and futuristic flair. Yours for $62,195."
+    discription: "2025 Volkswagen ID. Buzz Pro S - A higher trim electric van with enhanced comfort, cutting-edge EV tech, and futuristic flair. Yours for $62,195."
 
   },
 
@@ -307,7 +301,7 @@ export const products = [
       "images/search-car/image16_back.webp"
 
     ],
-    description: "2025 BMW 430i xDrive - A luxurious AWD coupe with sporty dynamics, premium cabin, and a turbocharged engine. A refined ride for $58,500."
+    discription: "2025 BMW 430i xDrive - A luxurious AWD coupe with sporty dynamics, premium cabin, and a turbocharged engine. A refined ride for $58,500."
 
   },
 
@@ -326,7 +320,7 @@ export const products = [
       "images/search-car/image17_back.webp"
 
     ],
-    description: "2025 BMW 430i - Rear-wheel-drive elegance packed with modern tech, athletic styling, and smooth turbocharged performance. Priced at $59,890."
+    discription: "2025 BMW 430i - Rear-wheel-drive elegance packed with modern tech, athletic styling, and smooth turbocharged performance. Priced at $59,890."
 
   },
 
@@ -345,7 +339,7 @@ export const products = [
       "images/search-car/image18_back.webp"
 
     ],
-    description: "2024 Ford Bronco - A rugged SUV with removable doors, 4x4 capability, and a bold design built for off-road adventures. Offered at $65,085."
+    discription: "2024 Ford Bronco - A rugged SUV with removable doors, 4x4 capability, and a bold design built for off-road adventures. Offered at $65,085."
 
   },
 
@@ -364,7 +358,7 @@ export const products = [
       "images/search-car/image19_back.webp"
 
     ],
-    description: "2025 Ford Bronco - The latest edition of the off-road icon, with upgraded tech, tougher looks, and go-anywhere utility. Starts at $98,690."
+    discription: "2025 Ford Bronco - The latest edition of the off-road icon, with upgraded tech, tougher looks, and go-anywhere utility. Starts at $98,690."
 
   },
 
@@ -383,7 +377,7 @@ export const products = [
       "images/search-car/image20_back.webp"
 
     ],
-    description: "2024 Ford Bronco Raptor - The ultimate off-road SUV with wide fenders, high-speed desert-running suspension, and 418 horsepower. Priced at $99,715."
+    discription: "2024 Ford Bronco Raptor - The ultimate off-road SUV with wide fenders, high-speed desert-running suspension, and 418 horsepower. Priced at $99,715."
 
   }
   
