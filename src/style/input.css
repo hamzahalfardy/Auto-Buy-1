@@ -55,13 +55,13 @@ body {
 
 /* Popup Message Styling */
 .Popup-Message {
-  position: absolute; /* Default for mobile */
-  width: 90%;
+  /* position: fixed; Default for mobile */
+  /* width: 90%;
   max-width: 500px;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.7); */
 }
 
 @media (min-width: 768px) {
