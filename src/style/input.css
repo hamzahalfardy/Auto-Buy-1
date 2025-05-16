@@ -489,3 +489,13 @@ input[type="search"]:focus{
   width: 48px;
   height: 48px;
 }
+.alert{
+  font-family: "Baumans", system-ui;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: rgb(3, 3, 101);
+  color: white;
+}
