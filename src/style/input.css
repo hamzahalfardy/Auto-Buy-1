@@ -30,6 +30,7 @@ body {
   position: relative;
   margin-top: 40px;
   margin-bottom: 40px;
+  padding: 0;
 }
 
 @media (min-width: 768px) { 
@@ -41,8 +42,8 @@ body {
 }
 
 .highlander {
-  width: 75%;
-  padding-right: 3rem; 
+  width: 100%;
+  display: block;
 }
 
 @media (max-width: 768px) {
@@ -54,7 +55,7 @@ body {
 
 /* Popup Message Styling */
 .Popup-Message {
-  position: static; /* Default for mobile */
+  position: absolute; /* Default for mobile */
   width: 90%;
   max-width: 500px;
   padding: 20px;
