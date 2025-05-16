@@ -19,6 +19,82 @@
 
 </head>
 <body>
+  <section id="the-nav-bar">
+    <!-- Nav bar -->
+    <nav class="relative container mx-auto p-6">
+      <!-- Flex Container -->
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <div class="pt-2 ">
+          <img src="src/images/carxperto.png" alt="logo" class="w-40 md:w-50 lg:w-56">
+        </div>
+  
+        <!-- Desktop Menu -->
+        <div id="menu" class="hidden md:flex space-x-10 tracking-wide font-sans text-gray-500 md:text-base sm:text-sm">
+          <a href="#home" class="relative group text-[1.1rem] text-gray-500">
+            Home
+            <span class="after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#0D3D3D] after:transition-all after:duration-300 after:origin-center group-hover:after:w-full group-hover:after:left-0 group-hover:after:right-0"></span>
+          </a>
+          <a href="#car-listing" class="relative group text-[1.1rem] text-gray-500">
+            Car Listing
+            <span class="after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#0D3D3D] after:transition-all after:duration-300 after:origin-center group-hover:after:w-full group-hover:after:left-0 group-hover:after:right-0"></span>
+          </a>
+          <a href="#about" class="relative group text-[1.1rem] text-gray-500">
+            About Us
+            <span class="after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#0D3D3D] after:transition-all after:duration-300 after:origin-center group-hover:after:w-full group-hover:after:left-0 group-hover:after:right-0"></span>
+          </a>
+          <a href="#features" class="relative group text-[1.1rem] text-gray-500">
+            Features
+            <span class="after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#0D3D3D] after:transition-all after:duration-300 after:origin-center group-hover:after:w-full group-hover:after:left-0 group-hover:after:right-0"></span>
+          </a>
+        </div>
+                
+  
+        <!-- Desktop Buttons -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="sign-up.html" target="_blank" class="font-semibold bg-[#003b6d] px-5 py-2 rounded-lg text-white hover:bg-[#002b50]">
+            Sign in
+          </a>
+          <a href="sign-up.html">
+            <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
+          </a>
+        </div>
+  
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="md:hidden text-3xl text-gray-600 z-50">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  
+    <!-- Backdrop -->
+    <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40">
+      
+    </div>
+  
+    <!-- Slide-in Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[70%] max-w-[280px] bg-white z-50 p-6 flex flex-col space-y-6 text-lg text-gray-700 transform translate-x-full transition-transform duration-300 md:hidden shadow-lg">
+      <!-- Close button -->
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold text-[#003b6d]">Menu</h2>
+        <button id="close-btn" class="text-2xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <!-- Nav Links -->
+      <a href="#home" class="hover:text-[#003b6d]">Home</a>
+      <a href="#car-listing" class="hover:text-[#003b6d]">Car Listing</a>
+      <a href="#about" class="hover:text-[#003b6d]">About Us</a>
+      <a href="#features" class="hover:text-[#003b6d]">Features</a>
+      <a href="sign-up.html" class="bg-[#003b6d] text-white py-2 px-4 rounded-lg hover:bg-[#002b50] text-center">Sign in</a>
+      <a href="sign-up.html" class="text-center">
+        <i class="fa-regular fa-circle-user text-[#003b6d] text-3xl"></i>
+      </a>
+    </div>
+  </section>
+
+
+
 
 <section id="form-id" class="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-12">
   <form id="signupForm"
